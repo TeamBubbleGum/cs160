@@ -1,0 +1,6 @@
+framework module Pods_myjournal_ios_lbta {
+  umbrella header "Pods-myjournal_ios_lbta-umbrella.h"
+
+  export *
+  module * { export * }
+}
