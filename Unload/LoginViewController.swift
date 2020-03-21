@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
             
             present(alertController, animated: true)
     }
-    
+     
     
     //We want to segue conditonally after the network confirms
     @IBAction func onSignIn(_ sender: Any) {
