@@ -4,22 +4,42 @@ let mongoose = require('mongoose')
 let itemmodel = require('../model/item.model')
 
 
-
-
 router.get('/', (req, res, next)=> {
-    res.status(200).json({
-        message: 'Temp for GET for  /item'
-    })
+    itemmodel.find()
+        .exec()
+        .then(item => {
+            res.status(200).json({
+                list: item
+            })
+        })
 })
 
-router.post('/', (req, res, next)=> {
-    res.status(200).json({
-        message: 'Temp for POST for  /item'
+router.post('/', (req, res, next) => {
+    if (!req.body){ //check that body not empty
+        return res.status(400).send('body is missing')
+    }
+    let item = new itemmodel({
+        _id: new mongoose.Types.ObjectId(),
+        name: req.body.name,
+        desc: req.body.desc,
+        weight: req.body.weight,
+        dimen: req.body.dimen,
+        seller: req.body.seller,
+        //tag: req.body.tag,
+        zip: req.body.zip
     })
+    item.tag.push(req.body.tag)// push the tag into the array
+    item.save() // actually save the user into DB
+        .then(result => {
+            console.log(result)
+            res.status(201).json({
+                message: 'Item created'
+            })
+        })
 })
 
-router.get('/:itemId', (req, res, next)=> {
-    const id = req.params.itemId
+router.get('/:itemId', (req, res, next) => {
+    let id = req.params.itemId
     if (id === 'test') {
         res.status(200).json({
             message: 'Successful TEST'
