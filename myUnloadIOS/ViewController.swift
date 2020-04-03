@@ -2,35 +2,36 @@
 //  ViewController.swift
 //  myjournal_ios_lbta
 //
-//  Created by Brian Voong on 7/10/19.
-//  Copyright © 2019 Brian Voong. All rights reserved.
+//  Created by Cagan Sevencan on 3/25/20.
+//  Copyright © 2019 Cagan Sevencan. All rights reserved.
 //
 
 import UIKit
 
-struct Post: Decodable {
+struct Item: Decodable {
     let id: Int
     let title, body: String
+    let zip, dimensions, weight: String
 }
 
 class Service: NSObject {
     static let shared = Service()
     
-    func fetchPosts(completion: @escaping (Result<[Post], Error>) -> ()) {
-        guard let url = URL(string: "http://localhost:1337/posts") else { return }
+    func fetchItems(completion: @escaping (Result<[Item], Error>) -> ()) {
+        guard let url = URL(string: "http://localhost:1337/items") else { return }
         
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
             DispatchQueue.main.async {
                 if let err = err {
-                    print("Failed to fetch posts:", err)
+                    print("Failed to fetch items:", err)
                     return
                 }
                 
                 guard let data = data else { return }
                 
                 do {
-                    let posts = try JSONDecoder().decode([Post].self, from: data)
-                    completion(.success(posts))
+                    let items = try JSONDecoder().decode([Item].self, from: data)
+                    completion(.success(items))
                 } catch {
                     completion(.failure(error))
                 }
@@ -39,13 +40,13 @@ class Service: NSObject {
         }.resume()
     }
     
-    func createPost(title: String, body: String, completion: @escaping (Error?) -> ()) {
-        guard let url = URL(string: "http://localhost:1337/post") else { return }
+    func createItem(title: String, body: String, completion: @escaping (Error?) -> ()) {
+        guard let url = URL(string: "http://localhost:1337/item") else { return }
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         
-        let params = ["title": title, "postBody": body]
+        let params = ["title": title, "itemBody": body]
         do {
             let data = try JSONSerialization.data(withJSONObject: params, options: .init())
             
@@ -66,7 +67,7 @@ class Service: NSObject {
     }
     
     func deletePost(id: Int, completion: @escaping (Error?) -> ()) {
-        guard let url = URL(string: "http://localhost:1337/post/\(id)") else { return }
+        guard let url = URL(string: "http://localhost:1337/item/\(id)") else { return }
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "DELETE"
@@ -94,71 +95,71 @@ class Service: NSObject {
 
 class ViewController: UITableViewController {
     
-    fileprivate func fetchPosts() {
-        Service.shared.fetchPosts { (res) in
+    fileprivate func fetchItems() {
+        Service.shared.fetchItems { (res) in
             switch res {
             case .failure(let err):
-                print("Failed to fetch posts:", err)
-            case .success(let posts):
-//                print(posts)
-                self.posts = posts
+                print("Failed to fetch items:", err)
+            case .success(let items):
+//                print(items)
+                self.items = items
                 self.tableView.reloadData()
             }
         }
     }
     
-    var posts = [Post]()
+    var items = [Item]()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
 //        cell.backgroundColor = .red
-        let post = posts[indexPath.row]
-        cell.textLabel?.text = post.title
-        cell.detailTextLabel?.text = post.body
+        let item = items[indexPath.row]
+        cell.textLabel?.text = item.title
+        cell.detailTextLabel?.text = item.body
         return cell
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchPosts()
+        fetchItems()
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Posts"
-        navigationItem.rightBarButtonItem = .init(title: "Create Post", style: .plain, target: self, action: #selector(handleCreatePost))
+        navigationItem.title = "Items"
+        navigationItem.rightBarButtonItem = .init(title: "Add an Item", style: .plain, target: self, action: #selector(handleCreateItem))
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("Delete post")
-            let post = self.posts[indexPath.row]
-            Service.shared.deletePost(id: post.id) { (err) in
+            print("Delete an Item")
+            let item = self.items[indexPath.row]
+            Service.shared.deletePost(id: item.id) { (err) in
                 if let err = err {
                     print("Failed to delete:", err)
                     return
                 }
                 
-                print("Successfully deleted post from server")
-                self.posts.remove(at: indexPath.row)
+                print("Successfully deleted the item from server")
+                self.items.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
     }
     
-    @objc fileprivate func handleCreatePost() {
-        print("Creating post")
-        Service.shared.createPost(title: "4444", body: "5555") { (err) in
+    @objc fileprivate func handleCreateItem() {
+        print("Creating an item")
+        Service.shared.createItem(title: "4444", body: "5555") { (err) in
             if let err = err {
-                print("Failed to create post object:", err)
+                print("Failed to create an item object:", err)
                 return
             }
             
-            print("Finished creating post")
-            self.fetchPosts()
+            print("Finished creating an item")
+            self.fetchItems()
         }
     }
 

@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  myjournal_ios_lbta
 //
-//  Created by Brian Voong on 7/10/19.
-//  Copyright © 2019 Brian Voong. All rights reserved.
+//  Created by Cagan Sevencan on 3/25/20.
+//  Copyright © 2019 Cagan Sevencan. All rights reserved.
 //
 
 import UIKit
