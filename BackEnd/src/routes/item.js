@@ -25,10 +25,10 @@ router.post('/', (req, res, next) => {
         weight: req.body.weight,
         dimen: req.body.dimen,
         seller: req.body.seller,
-        //tag: req.body.tag,
+        tag: req.body.tag,
         zip: req.body.zip
     })
-    item.tag.push(req.body.tag)// push the tag into the array
+    //item.tag.push(req.body.tag)// push the tag into the array
     item.save() // actually save the user into DB
         .then(result => {
             console.log(result)
