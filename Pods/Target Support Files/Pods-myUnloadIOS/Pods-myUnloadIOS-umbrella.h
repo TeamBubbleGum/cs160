@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double LBTAToolsVersionNumber;
-FOUNDATION_EXPORT const unsigned char LBTAToolsVersionString[];
+FOUNDATION_EXPORT double Pods_myUnloadIOSVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_myUnloadIOSVersionString[];
 
