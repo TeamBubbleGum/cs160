@@ -28,7 +28,6 @@ router.post('/', (req, res, next) => {
         tag: req.body.tag,
         zip: req.body.zip
     })
-    //item.tag.push(req.body.tag)// push the tag into the array
     item.save() // actually save the user into DB
         .then(result => {
             console.log(result)
@@ -63,3 +62,4 @@ router.delete('/:itemId', (req, res, next)=> {
 })
 
 module.exports = router
+//item.tag.push(req.body.tag)// push the tag into the array
