@@ -1,3 +1,0 @@
-  _id: 5e85302224681e1f9810b449,
-  email: 'keon@gmail.com',
-  password: '$2b$10$RG7s8RSruH7XoweWUNqqke7HrK36MipUJD5QyTiH3gchixxSc9MJ.',
