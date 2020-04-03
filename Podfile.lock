@@ -1,30 +1,18 @@
 PODS:
-  - Alamofire (4.8.1)
-  - AlamofireImage (3.5.0):
-    - Alamofire (~> 4.8)
-  - Bolts/Tasks (1.9.0)
-  - Parse (1.17.2):
-    - Parse/Core (= 1.17.2)
-  - Parse/Core (1.17.2):
-    - Bolts/Tasks (~> 1.9)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
 
 DEPENDENCIES:
-  - AlamofireImage
-  - Parse
+  - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Alamofire
-    - AlamofireImage
-    - Bolts
-    - Parse
+    - SDWebImage
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
-  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  Parse: 3b31a3dd1777b07ee7f0caee32fafbff544483a5
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
 
-PODFILE CHECKSUM: 52e7092b46fee95dea3a235acccb8887a4e4a972
+PODFILE CHECKSUM: 718fe8a09b76d3ed6c80be65765387ab15fef650
 
 COCOAPODS: 1.5.3
