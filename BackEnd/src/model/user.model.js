@@ -1,7 +1,7 @@
 let  mongoose = require('mongoose')
 
 let userSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectID,
+    _id: mongoose.Schema.Types.ObjectID, // underscore,_ , for mongoDB(they are using it)
     email:{type: String, required: true, unique: true},
     password: {type: String, required: true}
 })
