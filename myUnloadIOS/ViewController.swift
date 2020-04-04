@@ -21,13 +21,15 @@ class Service: NSObject {
         guard let url = URL(string: "http://localhost:1337/items") else { return }
         
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { //Whenever we fetch after its done dispatch it
                 if let err = err {
                     print("Failed to fetch items:", err)
                     return
                 }
                 
                 guard let data = data else { return }
+                
+                print(String(data: data, encoding: .utf8) ?? "")
                 
                 do {
                     let items = try JSONDecoder().decode([Item].self, from: data)
@@ -101,7 +103,7 @@ class ViewController: UITableViewController {
             case .failure(let err):
                 print("Failed to fetch items:", err)
             case .success(let items):
-//                print(items)
+               print(items)
                 self.items = items
                 self.tableView.reloadData()
             }
@@ -116,9 +118,10 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-//        cell.backgroundColor = .red
+        cell.backgroundColor = .yellow
         let item = items[indexPath.row]
         cell.textLabel?.text = item.title
+       
         cell.detailTextLabel?.text = item.body
         return cell
     }
