@@ -8,9 +8,7 @@ router.get('/', (req, res, next)=> {
     itemmodel.find()
         .exec()
         .then(item => {
-            res.status(200).json({
-                list: item
-            })
+            res.status(200).send(item)
         })
 })
 
