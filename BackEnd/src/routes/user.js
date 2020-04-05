@@ -93,7 +93,7 @@ router.post('/login', (req, res, next) => {
 
 // delete an account without searching yet
 router.delete('/:userId', (req, res, next)=>{
-    usermodel.remove({_id: req.params.id})
+    usermodel.remove({_id: req.params.userId})
         .exec()
         .then(request => {
             res.status(200).json({
