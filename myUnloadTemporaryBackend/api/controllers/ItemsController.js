@@ -15,6 +15,8 @@ items: async function (req, res) {  //request and response
 
   const title = req.body.title //in order to access to body obj of your entire request
   const itemBody = req.body.itemBody   //body is what we declared
+    const weight = req.body.weight
+
     if(title === "" && itemBody === ""){
       console.log("Empty String");
       //res.send("Empty String")
@@ -23,6 +25,7 @@ items: async function (req, res) {  //request and response
 
 sails.log.debug('My title ' + title);
 sails.log.debug('My body ' + itemBody)
+    sails.log.debug('My weight ' + weight)
 
   /*  const items = await Item.find()
     const filteredItems = items
@@ -30,7 +33,7 @@ sails.log.debug('My body ' + itemBody)
 
     //res.send("We have added an item : " + filteredItems[0])
 
-Item.create({title: title, body: itemBody}).exec(function (err) {
+Item.create({title: title, body: itemBody, weight: weight}).exec(function (err) {
   if(err){
     return res.serverError(err.toString())
   }

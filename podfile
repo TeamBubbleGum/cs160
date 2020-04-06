@@ -8,5 +8,6 @@ target 'myUnloadIOS' do
   # Pods for myUnloadIOS
  
   pod 'SDWebImage'
+  pod  'Alamofire'
 
 end

@@ -24,10 +24,12 @@ module.exports.routes = {
   '/items': 'ItemsController.items',
   //  '/findById/:postId': 'PostsController.findById', //concept called slug
   'GET /item/:itemId': 'ItemsController.findById',
-  'POST /item': 'ItemsController.create',
-  //  '/create': 'PostsController.create' //does not follow the REST API conventions
-  'DELETE /item/:itemId': 'ItemsController.delete',
-
+  //'POST /item': 'ItemsController.create',
+  //If we want to use Sails actions then:
+  'POST /item': 'item/create',
+  //'DELETE /item/:itemId': 'ItemsController.delete',
+  //If we want to use action file then:
+  'DELETE /item/:itemId': 'item/delete',
   'GET /home': 'home/home'
   /***************************************************************************
   *                                                                          *

@@ -9,16 +9,16 @@
 import UIKit
 
 struct Item: Decodable {
-    let id: Int
-    let title, body: String
-    let zip, dimensions, weight: String
+  // let _id: String
+    let name, desc: String
+    let zip, dimen, weight: String
 }
 
 class Service: NSObject {
     static let shared = Service()
     
     func fetchItems(completion: @escaping (Result<[Item], Error>) -> ()) {
-        guard let url = URL(string: "http://localhost:1337/items") else { return }
+        guard let url = URL(string: "http://localhost:3000/item") else { return }
         
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
             DispatchQueue.main.async { //Whenever we fetch after its done dispatch it
@@ -42,23 +42,28 @@ class Service: NSObject {
         }.resume()
     }
     
-    func createItem(title: String, body: String, completion: @escaping (Error?) -> ()) {
+    
+    func createItem(name: String, desc: String, weight: String, completion: @escaping (Error?) -> ()) {
         guard let url = URL(string: "http://localhost:1337/item") else { return }
         
-        var urlRequest = URLRequest(url: url)
+        var urlRequest = URLRequest(url: url)  //declare urlRequest, and feed in url
         urlRequest.httpMethod = "POST"
         
-        let params = ["title": title, "itemBody": body]
+        let params = ["name": name, "desc": desc, "weight": weight]
         do {
             let data = try JSONSerialization.data(withJSONObject: params, options: .init())
             
-            urlRequest.httpBody = data
-            urlRequest.setValue("application/json", forHTTPHeaderField: "content-type")
+            urlRequest.httpBody = data  //this httpBody sent along with request
+            urlRequest.setValue("application/json", forHTTPHeaderField: "content-type")  //need to set a header for JSON
                 
             URLSession.shared.dataTask(with: urlRequest) { (data, resp, err) in
                 // check error
                 
+          
+                
                 guard let data = data else { return }
+                
+                print(String(data: data, encoding: .utf8) ?? "")
                 
                 completion(nil)
                 
@@ -74,13 +79,13 @@ class Service: NSObject {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "DELETE"
         URLSession.shared.dataTask(with: urlRequest) { (data, resp, err) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { //Everythings going to occur in the main thread for smoother response
                 if let err = err {
                     completion(err)
                     return
                 }
-                
-                if let resp = resp as? HTTPURLResponse, resp.statusCode != 200 {
+                //When we hit 404 in order to catch it:
+                if let resp = resp as? HTTPURLResponse, resp.statusCode != 200 {  //if response is not 200 then it shouls show error
                     let errorString = String(data: data ?? Data(), encoding: .utf8) ?? ""
                     completion(NSError(domain: "", code: resp.statusCode, userInfo: [NSLocalizedDescriptionKey: errorString]))
                     return
@@ -120,9 +125,8 @@ class ViewController: UITableViewController {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.backgroundColor = .yellow
         let item = items[indexPath.row]
-        cell.textLabel?.text = item.title
-       
-        cell.detailTextLabel?.text = item.body
+        cell.textLabel?.text = item.name
+        cell.detailTextLabel?.text = item.desc
         return cell
     }
 
@@ -140,6 +144,7 @@ class ViewController: UITableViewController {
         if editingStyle == .delete {
             print("Delete an Item")
             let item = self.items[indexPath.row]
+           /*
             Service.shared.deletePost(id: item.id) { (err) in
                 if let err = err {
                     print("Failed to delete:", err)
@@ -147,15 +152,18 @@ class ViewController: UITableViewController {
                 }
                 
                 print("Successfully deleted the item from server")
-                self.items.remove(at: indexPath.row)
-                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                //self.fetchItems()  -- Reload the entire table
+                self.items.remove(at: indexPath.row)  //also have to remove it from the arrau
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)  //deleting a particular index path //.automatic for the animation
             }
+            
+            */
         }
     }
     
     @objc fileprivate func handleCreateItem() {
         print("Creating an item")
-        Service.shared.createItem(title: "4444", body: "5555") { (err) in
+        Service.shared.createItem(name: "IOS TITLE", desc: "IOS ITEM BODY", weight: "35") { (err) in   //make a call to the service class
             if let err = err {
                 print("Failed to create an item object:", err)
                 return
