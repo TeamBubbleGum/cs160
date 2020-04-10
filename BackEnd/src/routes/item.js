@@ -54,9 +54,19 @@ router.patch('/:itemId', (req, res, next)=> {
     })
 })
 router.delete('/:itemId', (req, res, next)=> {
-    res.status(200).json({
-        message: 'Temp for DELETE for  /item/itemId'
-    })
+    itemmodel.remove({_id: req.params.itemId})
+        .exec()
+        .then(request => {
+            res.status(200).json({
+                message: 'Item deleted'
+            })
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json({
+                error: err
+            })
+        })
 })
 
 

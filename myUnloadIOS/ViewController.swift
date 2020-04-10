@@ -9,9 +9,10 @@
 import UIKit
 
 struct Item: Decodable {
-  // let _id: String
+   let _id: String
     let name, desc: String
     let zip, dimen, weight: String
+    let seller: String
 }
 
 class Service: NSObject {
@@ -43,17 +44,17 @@ class Service: NSObject {
     }
     
     
-    func createItem(name: String, desc: String, weight: String, completion: @escaping (Error?) -> ()) {
-        guard let url = URL(string: "http://localhost:1337/item") else { return }
+    func createItem(name: String, desc: String, weight: String, dimen: String, seller: String, zip: String, completion: @escaping (Error?) -> ()) {
+        guard let url = URL(string: "http://localhost:3000/item") else { return }
         
         var urlRequest = URLRequest(url: url)  //declare urlRequest, and feed in url
         urlRequest.httpMethod = "POST"
         
-        let params = ["name": name, "desc": desc, "weight": weight]
+        let params = ["name": name, "desc": desc, "weight": weight, "dimen": dimen, "seller": seller, "zip": zip]
         do {
             let data = try JSONSerialization.data(withJSONObject: params, options: .init())
             
-            urlRequest.httpBody = data  //this httpBody sent along with request
+            urlRequest.httpBody = data  //this httpBody sent along with request!!
             urlRequest.setValue("application/json", forHTTPHeaderField: "content-type")  //need to set a header for JSON
                 
             URLSession.shared.dataTask(with: urlRequest) { (data, resp, err) in
@@ -73,8 +74,8 @@ class Service: NSObject {
         }
     }
     
-    func deletePost(id: Int, completion: @escaping (Error?) -> ()) {
-        guard let url = URL(string: "http://localhost:1337/item/\(id)") else { return }
+    func deletePost(id: String, completion: @escaping (Error?) -> ()) {
+        guard let url = URL(string: "http://localhost:3000/item/\(id)") else { return }
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "DELETE"
@@ -144,8 +145,8 @@ class ViewController: UITableViewController {
         if editingStyle == .delete {
             print("Delete an Item")
             let item = self.items[indexPath.row]
-           /*
-            Service.shared.deletePost(id: item.id) { (err) in
+           
+            Service.shared.deletePost(id: item._id) { (err) in
                 if let err = err {
                     print("Failed to delete:", err)
                     return
@@ -157,13 +158,13 @@ class ViewController: UITableViewController {
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)  //deleting a particular index path //.automatic for the animation
             }
             
-            */
+            
         }
     }
     
     @objc fileprivate func handleCreateItem() {
         print("Creating an item")
-        Service.shared.createItem(name: "IOS TITLE", desc: "IOS ITEM BODY", weight: "35") { (err) in   //make a call to the service class
+        Service.shared.createItem(name: "IOS TITLE2", desc: "IOS ITEM BODY", weight: "3lbs", dimen: "2 x 4 x 4", seller: "2424", zip: "95123" ) { (err) in   //make a call to the service class
             if let err = err {
                 print("Failed to create an item object:", err)
                 return
