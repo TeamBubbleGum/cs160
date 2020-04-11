@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  myjournal_ios_lbta
+//  
 //
 //  Created by Cagan Sevencan on 3/25/20.
-//  Copyright © 2019 Cagan Sevencan. All rights reserved.
+//  Copyright © 2020 Cagan Sevencan. All rights reserved.
 //
 
 import UIKit
@@ -13,92 +13,6 @@ struct Item: Decodable {
     let name, desc: String
     let zip, dimen, weight: String
     let seller: String
-}
-
-class Service: NSObject {
-    static let shared = Service()
-    
-    func fetchItems(completion: @escaping (Result<[Item], Error>) -> ()) {
-        guard let url = URL(string: "http://localhost:3000/item") else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, resp, err) in
-            DispatchQueue.main.async { //Whenever we fetch after its done dispatch it
-                if let err = err {
-                    print("Failed to fetch items:", err)
-                    return
-                }
-                
-                guard let data = data else { return }
-                
-                print(String(data: data, encoding: .utf8) ?? "")
-                
-                do {
-                    let items = try JSONDecoder().decode([Item].self, from: data)
-                    completion(.success(items))
-                } catch {
-                    completion(.failure(error))
-                }
-            }
-            
-        }.resume()
-    }
-    
-    
-    func createItem(name: String, desc: String, weight: String, dimen: String, seller: String, zip: String, completion: @escaping (Error?) -> ()) {
-        guard let url = URL(string: "http://localhost:3000/item") else { return }
-        
-        var urlRequest = URLRequest(url: url)  //declare urlRequest, and feed in url
-        urlRequest.httpMethod = "POST"
-        
-        let params = ["name": name, "desc": desc, "weight": weight, "dimen": dimen, "seller": seller, "zip": zip]
-        do {
-            let data = try JSONSerialization.data(withJSONObject: params, options: .init())
-            
-            urlRequest.httpBody = data  //this httpBody sent along with request!!
-            urlRequest.setValue("application/json", forHTTPHeaderField: "content-type")  //need to set a header for JSON
-                
-            URLSession.shared.dataTask(with: urlRequest) { (data, resp, err) in
-                // check error
-                
-          
-                
-                guard let data = data else { return }
-                
-                print(String(data: data, encoding: .utf8) ?? "")
-                
-                completion(nil)
-                
-                }.resume() // i always forget this
-        } catch {
-            completion(error)
-        }
-    }
-    
-    func deletePost(id: String, completion: @escaping (Error?) -> ()) {
-        guard let url = URL(string: "http://localhost:3000/item/\(id)") else { return }
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "DELETE"
-        URLSession.shared.dataTask(with: urlRequest) { (data, resp, err) in
-            DispatchQueue.main.async { //Everythings going to occur in the main thread for smoother response
-                if let err = err {
-                    completion(err)
-                    return
-                }
-                //When we hit 404 in order to catch it:
-                if let resp = resp as? HTTPURLResponse, resp.statusCode != 200 {  //if response is not 200 then it shouls show error
-                    let errorString = String(data: data ?? Data(), encoding: .utf8) ?? ""
-                    completion(NSError(domain: "", code: resp.statusCode, userInfo: [NSLocalizedDescriptionKey: errorString]))
-                    return
-                }
-                
-                completion(nil)
-                
-            }
-            // check error
-            
-            }.resume() // i always forget this
-    }
 }
 
 class ViewController: UITableViewController {
@@ -139,6 +53,37 @@ class ViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Items"
         navigationItem.rightBarButtonItem = .init(title: "Add an Item", style: .plain, target: self, action: #selector(handleCreateItem))
+        navigationItem.leftBarButtonItem = .init(title: "Login", style: .plain, target: self, action: #selector(handleLogin))
+    }
+    
+    @objc fileprivate func handleLogin(){
+        print("Performs login and refetch items list")
+        // fire off a login request to server of localhost - backend
+        guard let url = URL(string: "http://localhost:3000/login") else {return}
+        
+        var loginRequest = URLRequest(url: url)  //typecasting to URLRequest - takes in above url object
+        loginRequest.httpMethod = "POST"
+        
+        let params = ["email" : "cagansvncn@gmail.com", "password": "12345"]
+        do{
+            //Passing params as our object
+            loginRequest.httpBody = try JSONSerialization.data(withJSONObject: params, options:  .init())
+            
+            //When we use this, it keeps Session information inside of the cookies in IOS app
+            URLSession.shared.dataTask(with: loginRequest) { (data, resp, err) in
+               //check error
+                if let err = err{
+                    print("Failed to login:", err)
+                    return
+                }
+                print("Logged in successfully")
+                //self.fetchItems()
+            }.resume() //don't forget!
+        }catch{
+            print("Failed to serialize data:", error)
+        }
+        
+        
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -154,7 +99,7 @@ class ViewController: UITableViewController {
                 
                 print("Successfully deleted the item from server")
                 //self.fetchItems()  -- Reload the entire table
-                self.items.remove(at: indexPath.row)  //also have to remove it from the arrau
+                self.items.remove(at: indexPath.row)  //also have to remove it from the array
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)  //deleting a particular index path //.automatic for the animation
             }
             

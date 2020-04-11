@@ -1,0 +1,54 @@
+<html>
+
+<style>
+    .post-container {
+        background-color: lightgray;
+        margin: 26px;
+        padding: 16px;
+        border-radius: 5px;
+        border: solid 1px black
+    }
+</style>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        async function handleDeleteItem(e) {
+          console.log("Deleting post...")
+          console.log(e.target.id)
+
+          const itemId = e.target.id
+          const url = '/item/' + itemId
+          try {
+           const response = await axios.delete(url)
+            console.log(response)
+            location.reload() //refresh after we delete
+          }catch(err){
+            console.error(err.toString())
+            alert(err.toString())
+          }
+        }
+    </script>
+
+    <body style='background-color: white'>
+    This will show a list of our posts
+
+    <form class="post-container" action="/item" method="POST">
+        <div>Add an Item to sell</div>
+        <input name='title' type="text" placeholder="Item Title">
+        <input name='itemBody' type="text" placeholder="Item Body">
+        <button type="submit">Submit</button>
+    </form>
+
+    <div>
+        <% allItems.forEach(p => {%>
+        <div class='post-container'>
+            <div><%= p.title %> </div>
+            <div> <%= p.body %></div>
+            <button id=<%= p.id %> onclick="handleDeleteItem(event)">Delete</button>
+        </div>
+       <% })  %>
+
+        </div>
+    </body>
+</html>

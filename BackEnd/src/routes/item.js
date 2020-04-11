@@ -3,11 +3,12 @@ let router = express.Router()
 let mongoose = require('mongoose')
 let itemmodel = require('../model/item.model')
 
-
-router.get('/', (req, res, next)=> {
+ router.get('/', (req, res, next)=> {
+   // const userId = req.session._id
+//find({usermodel: userId})
     itemmodel.find()
         .exec()
-        .then(item => {
+       .then(item => {
             res.status(200).send(item)
         })
 })
@@ -52,7 +53,7 @@ router.patch('/:itemId', (req, res, next)=> {
     res.status(200).json({
         message: 'Temp for PATCH for  /item/itemId'
     })
-})
+});
 router.delete('/:itemId', (req, res, next)=> {
     itemmodel.remove({_id: req.params.itemId})
         .exec()
@@ -67,7 +68,7 @@ router.delete('/:itemId', (req, res, next)=> {
                 error: err
             })
         })
-})
+});
 
 
 module.exports = router

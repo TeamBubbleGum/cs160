@@ -21,7 +21,8 @@ module.exports.session = {
   secret: 'e4e41f80e46ef8f3487b18609bc8fd51',
 
   adapter: 'connect-mongo',
-  url:
+  url: 'mongodb://lbta:lbta111@ds151007.mlab.com:51007/myjournallbta',
+  collection: 'sessions',
 
   /***************************************************************************
   *                                                                          *

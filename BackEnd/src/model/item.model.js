@@ -1,4 +1,5 @@
 let  mongoose = require('mongoose')
+let usermodel = require('../model/user.model')
 
 let itemSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectID,
@@ -8,7 +9,10 @@ let itemSchema = mongoose.Schema({
     dimen: {type: String, match: /(\d+(?:,\d+)?) x (\d+(?:,\d+)?)(?: x (\d+(?:,\d+)?))?/},
     seller: {type: String}, //require seller's ID
     tag: [String], //array of strings for tags
-    zip: {type: String, match: /^(\d{5}(?:\-\d{4})?)$/}
+    zip: {type: String, match: /^(\d{5}(?:\-\d{4})?)$/},
+    //usermodel: {
+      //  model: 'user'
+    //}
 })
 
 module.exports = mongoose.model('Item', itemSchema)

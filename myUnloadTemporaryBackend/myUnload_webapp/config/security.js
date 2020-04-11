@@ -43,7 +43,7 @@ module.exports.security = {
   * https://sailsjs.com/docs/concepts/security/csrf                           *
   *                                                                           *
   ****************************************************************************/
-
-  csrf: true
+  //for demo purposes we will disable
+  csrf: false
 
 };
