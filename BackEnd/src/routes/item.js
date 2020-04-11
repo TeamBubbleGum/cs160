@@ -10,6 +10,7 @@ let itemmodel = require('../model/item.model')
         .exec()
        .then(item => {
             res.status(200).send(item)
+           console.log("Printed ALL")
         })
 })
 

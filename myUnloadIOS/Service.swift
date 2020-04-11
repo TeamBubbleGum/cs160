@@ -19,7 +19,7 @@ class Service: NSObject {
         fetchItemsRequest.setValue("application/json", forHTTPHeaderField: "Content-type")
         
         URLSession.shared.dataTask(with: fetchItemsRequest) { (data, resp, err) in
-            DispatchQueue.main.async { //Whenever we fetch after its done dispatch it
+            DispatchQueue.main.async { //Whenever we fetch after its done dispatch it- for threading
                 if let err = err {
                     print("Failed to fetch items:", err)
                     return
@@ -32,6 +32,7 @@ class Service: NSObject {
                 do {
                     let items = try JSONDecoder().decode([Item].self, from: data)
                     completion(.success(items))
+                    print("Fetched items successfully")
                 } catch {
                     completion(.failure(error))
                 }

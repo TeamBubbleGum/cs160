@@ -19,11 +19,12 @@ class ViewController: UITableViewController {
     
     fileprivate func fetchItems() {
         Service.shared.fetchItems { (res) in
+            //To test the result, do a switch statement
             switch res {
             case .failure(let err):
                 print("Failed to fetch items:", err)
             case .success(let items):
-               print(items)
+              // print(items)
                 self.items = items
                 self.tableView.reloadData()
             }
@@ -59,13 +60,14 @@ class ViewController: UITableViewController {
     @objc fileprivate func handleLogin(){
         print("Performs login and refetch items list")
         // fire off a login request to server of localhost - backend
-        guard let url = URL(string: "http://localhost:3000/login") else {return}
+        guard let url = URL(string: "http://localhost:3000/user/login") else {return}
         
         var loginRequest = URLRequest(url: url)  //typecasting to URLRequest - takes in above url object
         loginRequest.httpMethod = "POST"
         
-        let params = ["email" : "cagansvncn@gmail.com", "password": "12345"]
+        
         do{
+            let params = ["_id": "", "email" : "cagansvncn@gmail.com", "password": "12345"]
             //Passing params as our object
             loginRequest.httpBody = try JSONSerialization.data(withJSONObject: params, options:  .init())
             
@@ -77,7 +79,7 @@ class ViewController: UITableViewController {
                     return
                 }
                 print("Logged in successfully")
-                //self.fetchItems()
+                self.fetchItems()
             }.resume() //don't forget!
         }catch{
             print("Failed to serialize data:", error)

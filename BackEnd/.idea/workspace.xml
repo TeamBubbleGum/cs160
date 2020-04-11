@@ -2,26 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97517762-67b7-4d68-9cf3-992470f086ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../myUnloadIOS/LoginViewController.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myUnloadIOS/Service.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myUnloadTemporaryBackend/myUnload_webapp/api/controllers/home/home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myUnloadTemporaryBackend/myUnload_webapp/api/controllers/item/create.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myUnloadTemporaryBackend/myUnload_webapp/api/controllers/item/delete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myUnloadTemporaryBackend/myUnload_webapp/api/models/Item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../myUnloadTemporaryBackend/myUnload_webapp/views/pages/home.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/core-util-is/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/core-util-is/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/item.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/item.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadIOS.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myUnloadIOS/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadIOS/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myUnloadIOS/LoginViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/LoginViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myUnloadIOS/Service.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/Service.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myUnloadIOS/ViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/ViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadTemporaryBackend/api/controllers/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadTemporaryBackend/api/controllers/home/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadTemporaryBackend/myUnload_webapp/api/controllers/view-homepage-or-redirect.js" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadTemporaryBackend/myUnload_webapp/api/controllers/view-homepage-or-redirect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadTemporaryBackend/myUnload_webapp/config/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadTemporaryBackend/myUnload_webapp/config/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadTemporaryBackend/myUnload_webapp/config/security.js" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadTemporaryBackend/myUnload_webapp/config/security.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadTemporaryBackend/myUnload_webapp/config/session.js" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadTemporaryBackend/myUnload_webapp/config/session.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +48,7 @@
       <workItem from="1586503958784" duration="1198000" />
       <workItem from="1586505321750" duration="66000" />
       <workItem from="1586515569858" duration="476000" />
-      <workItem from="1586517477756" duration="3382000" />
+      <workItem from="1586517477756" duration="10044000" />
     </task>
     <servers />
   </component>
