@@ -9,5 +9,6 @@ target 'myUnloadIOS' do
  
   pod 'SDWebImage'
   pod  'Alamofire'
+  pod  'AlamofireImage'
 
 end

@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97517762-67b7-4d68-9cf3-992470f086ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../myUnloadIOS/ItemViewController.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myUnloadIOS/CaptureViewController.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Manifest.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Manifest.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-myUnloadIOS/Pods-myUnloadIOS-acknowledgements.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-myUnloadIOS/Pods-myUnloadIOS-acknowledgements.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-myUnloadIOS/Pods-myUnloadIOS-acknowledgements.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-myUnloadIOS/Pods-myUnloadIOS-acknowledgements.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-myUnloadIOS/Pods-myUnloadIOS-frameworks.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-myUnloadIOS/Pods-myUnloadIOS-frameworks.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-myUnloadIOS/Pods-myUnloadIOS.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-myUnloadIOS/Pods-myUnloadIOS.debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-myUnloadIOS/Pods-myUnloadIOS.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Target Support Files/Pods-myUnloadIOS/Pods-myUnloadIOS.release.xcconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myUnloadIOS.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myUnloadIOS/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/Base.lproj/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadIOS/LoginViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/LoginViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../podfile" beforeDir="false" afterPath="$PROJECT_DIR$/../podfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +56,7 @@
       <workItem from="1586505321750" duration="66000" />
       <workItem from="1586515569858" duration="476000" />
       <workItem from="1586517477756" duration="11367000" />
-      <workItem from="1586648634279" duration="2904000" />
+      <workItem from="1586648634279" duration="3402000" />
     </task>
     <servers />
   </component>

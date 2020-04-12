@@ -71,28 +71,83 @@
                     <connections>
                         <outlet property="passwordTextField" destination="O4C-of-wcn" id="jft-qt-Vxs"/>
                         <outlet property="usernameTextField" destination="Qwm-Og-kiI" id="ewi-yb-o4a"/>
-                        <segue destination="Nr8-et-itZ" kind="presentation" identifier="loginSegue" id="VJ1-bG-XUd"/>
+                        <segue destination="Nr8-et-itZ" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="VJ1-bG-XUd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wu0-Rr-CUV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1738" y="74"/>
+            <point key="canvasLocation" x="-1851" y="8"/>
         </scene>
         <!--Item View Controller-->
         <scene sceneID="AlS-sF-2bW">
             <objects>
                 <viewController id="G87-cy-vG8" customClass="ItemViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wbx-Cm-bp2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Syf-kk-QbD"/>
                     </view>
-                    <navigationItem key="navigationItem" id="AHJ-Lu-VHW"/>
+                    <navigationItem key="navigationItem" id="AHJ-Lu-VHW">
+                        <barButtonItem key="rightBarButtonItem" title="+" image="livephoto" catalog="system" id="aYZ-rd-OC4">
+                            <connections>
+                                <segue destination="PpY-D8-hL9" kind="presentation" id="2J0-jO-y9r"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSy-vA-4Fb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="171" y="74"/>
+            <point key="canvasLocation" x="-358" y="7"/>
+        </scene>
+        <!--Capture View Controller-->
+        <scene sceneID="XCI-j5-jj9">
+            <objects>
+                <viewController id="PpY-D8-hL9" customClass="CaptureViewController" customModule="myUnloadIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E0a-O1-X3U">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pH9-zj-pZr">
+                                <rect key="frame" x="20" y="20" width="374" height="310"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="s93-wN-p8N" appends="YES" id="ZSS-lP-zUY"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZLw-lA-fgl">
+                                <rect key="frame" x="20" y="355" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIN-aq-VnL">
+                                <rect key="frame" x="20" y="415" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="onSubmit:" destination="PpY-D8-hL9" eventType="touchUpInside" id="ycX-bg-6vS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="tbe-yf-hbo"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentField" destination="ZLw-lA-fgl" id="WSJ-Cn-re2"/>
+                        <outlet property="picView" destination="pH9-zj-pZr" id="tma-Tb-Wnr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="okJ-yX-a7i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="s93-wN-p8N">
+                    <connections>
+                        <action selector="onCamera:" destination="PpY-D8-hL9" id="3Uu-EC-XJK"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="389.85507246376812" y="29.464285714285712"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -115,7 +170,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nr8-et-itZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ssO-zr-LCw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -125,7 +180,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avi-a4-4bK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-628" y="74"/>
+            <point key="canvasLocation" x="-1107" y="7"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="livephoto" catalog="system" width="64" height="60"/>
+        <image name="photo" catalog="system" width="64" height="46"/>
+    </resources>
 </document>
