@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97517762-67b7-4d68-9cf3-992470f086ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../myUnloadIOS/ItemViewController.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadIOS/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myUnloadIOS.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myUnloadIOS/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/Base.lproj/Main.storyboard" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myUnloadIOS/LoginViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/LoginViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadIOS/Service.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/Service.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadIOS/ViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/ViewController.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,8 @@
       <workItem from="1586503958784" duration="1198000" />
       <workItem from="1586505321750" duration="66000" />
       <workItem from="1586515569858" duration="476000" />
-      <workItem from="1586517477756" duration="10044000" />
+      <workItem from="1586517477756" duration="11367000" />
+      <workItem from="1586648634279" duration="2904000" />
     </task>
     <servers />
   </component>
@@ -60,5 +60,17 @@
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
     <state x="2529" y="220" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.980/1680.23.1920.1057@1680.23.1920.1057" timestamp="1586470689137" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/routes/user.js</url>
+          <line>81</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
