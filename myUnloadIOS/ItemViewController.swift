@@ -8,12 +8,12 @@
 
 import UIKit
 
-//struct Item: Decodable {
-//   let _id: String
-//    let name, desc: String
-//    let zip, dimen, weight: String
-//    let seller: String
-//}
+struct Item: Decodable {
+   let _id: String
+    let name, desc: String
+    let zip, dimen, weight: String
+    let seller: String
+}
 
 class ItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
@@ -69,5 +69,11 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
          
         return cell
        }
+    
+    
+    func onTimer() {
+       //Refresh Items
+    }
+    
     
 }

@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97517762-67b7-4d68-9cf3-992470f086ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../myUnloadIOS/ItemCell.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myUnloadIOS.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myUnloadIOS/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/Base.lproj/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadIOS/CaptureViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/CaptureViewController.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myUnloadIOS/ItemViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/ItemViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadIOS/LoginViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/LoginViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myUnloadIOS/ViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/ViewController.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +48,7 @@
       <workItem from="1586505321750" duration="66000" />
       <workItem from="1586515569858" duration="476000" />
       <workItem from="1586517477756" duration="11367000" />
-      <workItem from="1586648634279" duration="5585000" />
+      <workItem from="1586648634279" duration="5928000" />
     </task>
     <servers />
   </component>

@@ -8,12 +8,7 @@
 
 import UIKit
 
-struct Item: Decodable {
-   let _id: String
-    let name, desc: String
-    let zip, dimen, weight: String
-    let seller: String
-}
+
 
 class ViewController: UITableViewController {
     
@@ -53,40 +48,11 @@ class ViewController: UITableViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Items"
-        navigationItem.rightBarButtonItem = .init(title: "Add an Item", style: .plain, target: self, action: #selector(handleCreateItem))
-        navigationItem.leftBarButtonItem = .init(title: "Login", style: .plain, target: self, action: #selector(handleLogin))
+        //navigationItem.rightBarButtonItem = .init(title: "Add an Item", style: .plain, target: self, action: #selector(handleCreateItem))
+        //navigationItem.leftBarButtonItem = .init(title: "Login", style: .plain, target: self, action: #selector(handleLogin))
     }
     
-    @objc fileprivate func handleLogin(){
-        print("Performs login and refetch items list")
-        // fire off a login request to server of localhost - backend
-        guard let url = URL(string: "http://localhost:3000/user/login") else {return}
-        
-        var loginRequest = URLRequest(url: url)  //typecasting to URLRequest - takes in above url object
-        loginRequest.httpMethod = "POST"
-        
-        
-        do{
-            let params = ["_id": "", "email" : "cagansvncn@gmail.com", "password": "12345"]
-            //Passing params as our object
-            loginRequest.httpBody = try JSONSerialization.data(withJSONObject: params, options:  .init())
-            
-            //When we use this, it keeps Session information inside of the cookies in IOS app
-            URLSession.shared.dataTask(with: loginRequest) { (data, resp, err) in
-               //check error
-                if let err = err{
-                    print("Failed to login:", err)
-                    return
-                }
-                print("Logged in successfully")
-                self.fetchItems()
-            }.resume() //don't forget!
-        }catch{
-            print("Failed to serialize data:", error)
-        }
-        
-        
-    }
+   
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -108,20 +74,5 @@ class ViewController: UITableViewController {
             
         }
     }
-    
-    @objc fileprivate func handleCreateItem() {
-        print("Creating an item")
-        Service.shared.createItem(name: "IOS TITLE2", desc: "IOS ITEM BODY", weight: "3lbs", dimen: "2 x 4 x 4", seller: "2424", zip: "95123" ) { (err) in   //make a call to the service class
-            if let err = err {
-                print("Failed to create an item object:", err)
-                return
-            }
-            
-            print("Finished creating an item")
-            self.fetchItems()
-        }
-    }
-
-
 }
 
