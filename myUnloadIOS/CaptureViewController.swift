@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import AlamofireImage
+
+
 
 class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var picView: UIImageView!
-    
+    @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var commentField: UITextField!
+    @IBOutlet weak var weightField: UITextField!
+    @IBOutlet weak var zipField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +27,23 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBAction func onSubmit(_ sender: Any) {
+        guard let name = nameField.text, let description = commentField.text,
+            let weight = weightField.text, let zip = zipField.text else{
+                return
+        }
+       // let imageData = picView.image!.pngData() //Save it as a png
         
+        
+        
+        print("Adding the item")
+        Service.shared.createItem(name: name, desc: description, weight: weight, dimen: "2 x 4 x 4", seller: "2424", zip: zip ) { (err) in   //make a call to the service class
+                   if let err = err {
+                       print("Failed to create an item object:", err)
+                       return
+                   }
+                   print("Finished creating an item")
+               }
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onCamera(_ sender: Any) {
@@ -41,11 +62,19 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         present(picker, animated: true, completion: nil)
     }
+    
     //Retuns a dict. that has the image
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController (_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //It comes inside of a dict. called info, it comes with other info as well as image asset
         let image = info[.editedImage] as! UIImage //Cast it as a UIImage since its coming out of dictionary
         //We have to resize it to shrink its size
+        let size = CGSize(width: 300, height: 300)
+        let scaledImage = image.af.imageScaled(to: size) //scaling it down to size
+        //Put the scaled image inside the picView
+        picView.image = scaledImage
+        
+        //Dismiss camera view
+        dismiss(animated: true, completion: nil)
     }
     
 

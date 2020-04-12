@@ -146,7 +146,6 @@ class LoginViewController: UIViewController {
                        print(httpResponse.statusCode)
                       DispatchQueue.main.async { [weak self] in
                     if httpResponse.statusCode == 200 {
-                  
                     self?.performSegue(withIdentifier: "loginSegue", sender: nil)
                     
                     print("Logged in successfully")
@@ -156,7 +155,7 @@ class LoginViewController: UIViewController {
                     }
                         }
                             }
-                       //self.fetchItems()
+                       //self.fetchItems() 
                    }.resume() //don't forget!
                }catch{
                    print("Failed to serialize data:", error)
