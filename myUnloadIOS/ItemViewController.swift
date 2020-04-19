@@ -19,7 +19,7 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     
-    fileprivate func fetchItems() {
+     func fetchItems() {
         Service.shared.fetchItems { (res) in
             //To test the result, do a switch statement
             switch res {
@@ -42,6 +42,8 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
         //Delegate pattern: Two objects acting in coordination, tableView and ItemViewController
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,15 +66,16 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.nameLabel.text = item.name
         cell.descLabel.text = item.desc
-        cell.sellerLabel.text = item.seller
+        cell.sellerLabel.text = item.weight
         cell.zipLabel.text = item.zip
          
         return cell
        }
     
     
-    func onTimer() {
+    @objc func onTimer() {
        //Refresh Items
+        
     }
     
     

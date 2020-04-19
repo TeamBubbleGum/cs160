@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="97517762-67b7-4d68-9cf3-992470f086ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadIOS.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/item.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myUnloadIOS/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/Base.lproj/Main.storyboard" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myUnloadIOS/ItemViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/ItemViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myUnloadIOS/ViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../myUnloadIOS/ViewController.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,10 @@
       <workItem from="1586505321750" duration="66000" />
       <workItem from="1586515569858" duration="476000" />
       <workItem from="1586517477756" duration="11367000" />
-      <workItem from="1586648634279" duration="5928000" />
+      <workItem from="1586648634279" duration="5930000" />
+      <workItem from="1586822133412" duration="1450000" />
+      <workItem from="1586825361284" duration="8000" />
+      <workItem from="1587325016238" duration="479000" />
     </task>
     <servers />
   </component>
@@ -67,7 +69,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/routes/user.js</url>
           <line>81</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -27,6 +27,10 @@ class Service: NSObject {
                 
                 guard let data = data else { return }
                 
+                func parseJSON(data: Data) -> [[String: Any]]? {
+                    return try? JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]]
+                }
+                
                 print(String(data: data, encoding: .utf8) ?? "")
                 
                 do {
@@ -39,7 +43,12 @@ class Service: NSObject {
             }
             
         }.resume()
+      
     }
+    
+    func parseJSON(data: Data) -> [[String: Any]]? {
+              return try? JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]]
+          }
     
     
     func createItem(name: String, desc: String, weight: String, dimen: String, seller: String, zip: String, completion: @escaping (Error?) -> ()) {

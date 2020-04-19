@@ -13,11 +13,23 @@
 		6F1EA6D02441C80600E48CB4 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1EA6CF2441C80600E48CB4 /* ItemViewController.swift */; };
 		6F1EA6D22442AFDE00E48CB4 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1EA6D12442AFDE00E48CB4 /* CaptureViewController.swift */; };
 		6F571D982442F4440055123D /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F571D972442F4440055123D /* ItemCell.swift */; };
+		6FF4DED2244CE4AB002D77CF /* myUnloadIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF4DED1244CE4AB002D77CF /* myUnloadIOSTests.swift */; };
+		6FF4DEDA244CF198002D77CF /* JSON.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6FF4DED9244CF198002D77CF /* JSON.txt */; };
 		C7F596A822D6817D004B45F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F596A722D6817D004B45F3 /* AppDelegate.swift */; };
 		C7F596AD22D6817D004B45F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F596AB22D6817D004B45F3 /* Main.storyboard */; };
 		C7F596AF22D6817E004B45F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F596AE22D6817E004B45F3 /* Assets.xcassets */; };
 		C7F596B222D6817E004B45F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F596B022D6817E004B45F3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6FF4DED4244CE4AB002D77CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7F5969C22D6817D004B45F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7F596A322D6817D004B45F3;
+			remoteInfo = myUnloadIOS;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3F0207E7104421251A613165 /* Pods-myUnloadIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myUnloadIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-myUnloadIOS/Pods-myUnloadIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -27,6 +39,10 @@
 		6F1EA6CF2441C80600E48CB4 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		6F1EA6D12442AFDE00E48CB4 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		6F571D972442F4440055123D /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		6FF4DECF244CE4AB002D77CF /* myUnloadIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myUnloadIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FF4DED1244CE4AB002D77CF /* myUnloadIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myUnloadIOSTests.swift; sourceTree = "<group>"; };
+		6FF4DED3244CE4AB002D77CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FF4DED9244CF198002D77CF /* JSON.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = JSON.txt; sourceTree = "<group>"; };
 		C7F596A422D6817D004B45F3 /* myUnloadIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myUnloadIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F596A722D6817D004B45F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7F596AC22D6817D004B45F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -37,6 +53,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6FF4DECC244CE4AB002D77CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7F596A122D6817D004B45F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,6 +80,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6FF4DED0244CE4AB002D77CF /* myUnloadIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				6FF4DED1244CE4AB002D77CF /* myUnloadIOSTests.swift */,
+				6FF4DED3244CE4AB002D77CF /* Info.plist */,
+				6FF4DED9244CF198002D77CF /* JSON.txt */,
+			);
+			path = myUnloadIOSTests;
+			sourceTree = "<group>";
+		};
 		9ABAF5C70BD048256D7C4BC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F596A622D6817D004B45F3 /* myUnloadIOS */,
+				6FF4DED0244CE4AB002D77CF /* myUnloadIOSTests */,
 				C7F596A522D6817D004B45F3 /* Products */,
 				003770BD4E8B5ADD225737E9 /* Pods */,
 				9ABAF5C70BD048256D7C4BC0 /* Frameworks */,
@@ -79,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F596A422D6817D004B45F3 /* myUnloadIOS.app */,
+				6FF4DECF244CE4AB002D77CF /* myUnloadIOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +138,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6FF4DECE244CE4AB002D77CF /* myUnloadIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FF4DED8244CE4AB002D77CF /* Build configuration list for PBXNativeTarget "myUnloadIOSTests" */;
+			buildPhases = (
+				6FF4DECB244CE4AB002D77CF /* Sources */,
+				6FF4DECC244CE4AB002D77CF /* Frameworks */,
+				6FF4DECD244CE4AB002D77CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6FF4DED5244CE4AB002D77CF /* PBXTargetDependency */,
+			);
+			name = myUnloadIOSTests;
+			productName = myUnloadIOSTests;
+			productReference = 6FF4DECF244CE4AB002D77CF /* myUnloadIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C7F596A322D6817D004B45F3 /* myUnloadIOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7F596B622D6817E004B45F3 /* Build configuration list for PBXNativeTarget "myUnloadIOS" */;
@@ -128,10 +181,14 @@
 		C7F5969C22D6817D004B45F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Cagan Sevencan";
 				TargetAttributes = {
+					6FF4DECE244CE4AB002D77CF = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = C7F596A322D6817D004B45F3;
+					};
 					C7F596A322D6817D004B45F3 = {
 						CreatedOnToolsVersion = 10.2;
 					};
@@ -151,11 +208,20 @@
 			projectRoot = "";
 			targets = (
 				C7F596A322D6817D004B45F3 /* myUnloadIOS */,
+				6FF4DECE244CE4AB002D77CF /* myUnloadIOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6FF4DECD244CE4AB002D77CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FF4DEDA244CF198002D77CF /* JSON.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7F596A222D6817D004B45F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,6 +284,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6FF4DECB244CE4AB002D77CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FF4DED2244CE4AB002D77CF /* myUnloadIOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7F596A022D6817D004B45F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,6 +306,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6FF4DED5244CE4AB002D77CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7F596A322D6817D004B45F3 /* myUnloadIOS */;
+			targetProxy = 6FF4DED4244CE4AB002D77CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C7F596AB22D6817D004B45F3 /* Main.storyboard */ = {
@@ -253,6 +335,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6FF4DED6244CE4AB002D77CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6H44FK9W2H;
+				INFOPLIST_FILE = myUnloadIOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = bubblegum.myUnloadIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myUnloadIOS.app/myUnloadIOS";
+			};
+			name = Debug;
+		};
+		6FF4DED7244CE4AB002D77CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6H44FK9W2H;
+				INFOPLIST_FILE = myUnloadIOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = bubblegum.myUnloadIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myUnloadIOS.app/myUnloadIOS";
+			};
+			name = Release;
+		};
 		C7F596B422D6817E004B45F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -410,6 +534,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6FF4DED8244CE4AB002D77CF /* Build configuration list for PBXNativeTarget "myUnloadIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FF4DED6244CE4AB002D77CF /* Debug */,
+				6FF4DED7244CE4AB002D77CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C7F5969F22D6817D004B45F3 /* Build configuration list for PBXProject "myUnloadIOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
