@@ -92,20 +92,23 @@ router.post('/login', (req, res, next) => {
 );
 
 // delete an account without searching yet
-router.delete('/:userId', (req, res, next)=>{
-    usermodel.remove({_id: req.params.userId})
-        .exec()
-        .then(request => {
-            res.status(200).json({
-                message: 'User deleted'
-            })
-        })
-        .catch(err => {
+router.delete('/:userId', (req, res, next)=> {
+    usermodel.findByIdAndDelete(req.params.userId, (err, result) => {
+        if (err) {
             console.log(err)
             res.status(500).json({
                 error: err
             })
-        })
+        } else if (result) {
+            res.status(200).json({
+                message: 'User deleted', result
+            })
+        } else {
+            res.status(404).json({
+                message: 'Delete failed'
+            })
+        }
+    })
 })
 
 module.exports = router
