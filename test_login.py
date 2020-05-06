@@ -15,7 +15,7 @@ class LoginTests(unittest.TestCase):
                     'app': app,
                     'platformName': 'iOS',
                     'platformVersion': '13.2',
-                    'deviceName': 'iPhone 8'
+                    'deviceName': 'iPhone 11 Pro Max'
                 }
             )
 
@@ -38,6 +38,62 @@ class LoginTests(unittest.TestCase):
             sleep(1)
             self.assertNotEqual(passwordTF.get_attribute("value"), "validPW")
 
+    
+    #test to see if filling out nothing in the username and password field then pressing login will give us an error message
+    def testLoginNothing(self):
+            self.driver.find_element_by_accessibility_id('Login').click()
+            sleep(1)
+            self.driver.find_element_by_accessibility_id('OK').click() 
+            self.assertEqual(1, 1)
+    
+    #test to see if filling out just the username field then pressing login will give us an error message
+    def testLoginUsernameOnly(self):
+            usernameTF = self.driver.find_element_by_accessibility_id('usernameBox')
+            usernameTF.send_keys("test@unload.com")
+            usernameTF.send_keys(Keys.RETURN)
+            self.driver.find_element_by_accessibility_id('Login').click()
+            sleep(1)
+            self.driver.find_element_by_accessibility_id('OK').click() 
+            self.assertEqual(1, 1)
+
+    #test to see if fillin gout just the password field then pressing login will give us an error mesesage
+    def testLoginPasswordOnly(self):
+            passwordTF = self.driver.find_element_by_accessibility_id('passwordBox')
+            passwordTF.send_keys("validPW")
+            passwordTF.send_keys(Keys.RETURN)
+            self.driver.find_element_by_accessibility_id('Login').click()
+            sleep(1)
+            self.driver.find_element_by_accessibility_id('OK').click() 
+            self.assertEqual(1, 1)
+
+    #test to see if filling out nothing in the username and password field then pressing sign up will give us an error message
+    def testLoginNothing(self):
+            self.driver.find_element_by_accessibility_id('signUpButton').click()
+            sleep(1)
+            self.driver.find_element_by_accessibility_id('OK').click() 
+            self.assertEqual(1, 1)
+    
+    #test to see if filling out just the username field then pressing sign up will give us an error message
+    def testLoginUsernameOnly(self):
+            usernameTF = self.driver.find_element_by_accessibility_id('usernameBox')
+            usernameTF.send_keys("test@unload.com")
+            usernameTF.send_keys(Keys.RETURN)
+            self.driver.find_element_by_accessibility_id('signUpButton').click()
+            sleep(1)
+            self.driver.find_element_by_accessibility_id('OK').click() 
+            self.assertEqual(1, 1)
+
+    #test to see if fillin gout just the password field then pressing sign up will give us an error mesesage
+    def testLoginPasswordOnly(self):
+            passwordTF = self.driver.find_element_by_accessibility_id('passwordBox')
+            passwordTF.send_keys("validPW")
+            passwordTF.send_keys(Keys.RETURN)
+            self.driver.find_element_by_accessibility_id('signUpButton').click()
+            sleep(1)
+            self.driver.find_element_by_accessibility_id('OK').click() 
+            self.assertEqual(1, 1)
+
+    
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(LoginTests)
     unittest.TextTestRunner(verbosity=2).run(suite)
