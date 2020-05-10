@@ -3,7 +3,7 @@
 For developing unload their are some details that you need to know, for starters We used swift and Xcode for the front end Iphone interface, Express.js for the back end and MongoDB for the database. 
 
 Front end specifics:
-
+  Swift is used for front-end development, we have also imported pods such as Alomofire, AlamofireImage in order to collect images. After the back end server is up and running, simply download myUnloadIOS file and open the project on XCode. Make sure localhost number is same in both front end and back end. There are 2 controller classes for User and Item specifically and API calls are handled by the Service.swift class.
 
 
 Back end specifics: 
