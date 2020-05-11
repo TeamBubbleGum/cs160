@@ -38,4 +38,15 @@ Back end specifics:
 
 F.A.Q
 
-
+  Different email per account
+  
+  Currenty cannot reset password
+  
+  Can only add an item
+  
+  Only an item name is required for an item listing at this implementation.
+  
+  Items weight must include units immediately after the weight, no spaces.
+  
+  Items dimensions are always in inches.
+  
