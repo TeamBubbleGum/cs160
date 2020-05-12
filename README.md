@@ -38,6 +38,10 @@ Back end specifics:
 
 F.A.Q
 
+  Users are able to securely login and signup into the system. No empty spaces allowed.
+  
+  Items does not carry picture function yet, it will be implemented soon.
+  
   Different email per account
   
   Currenty cannot reset password
