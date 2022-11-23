@@ -13,7 +13,7 @@
     "sails-hook-grunt": "^4.0.0",
     "sails-hook-morgan": "^1.0.5",
     "sails-hook-orm": "^2.1.1",
-    "sails-hook-sockets": "^2.0.0"
+    "sails-hook-sockets": "^2.0.3"
   },
   "devDependencies": {
     "eslint": "5.16.0"
